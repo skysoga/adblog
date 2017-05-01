@@ -1,0 +1,259 @@
+[
+  {
+	"keyword": "VR",
+    "keywordParamName": "q",
+    "searchTime": 48,
+    "numFound": 29073,
+    "spellCheckList": [
+
+    ],
+    "relationWords": [
+
+    ],
+    "currFilterUrl": "wSearch.sp?act=search&clientType=responsive&sign=unar&category=AR",
+    "hasResult": true,
+    "facetModelList": [
+      {
+        "facetTitle": "发布机构",
+        "paramName": "depart",
+        "isSingleSelect": false,
+        "facetFieldList": [
+          {
+            "hit": 6444,
+            "isFocus": false,
+            "convertedValue": "新的部门",
+            "value": "04000800",
+            "paramName": "depart",
+            "fieldName": "S_department",
+            "url": "wSearch.sp?act=search&clientType=responsive&sign=unar&category=AR&depart=04000800"
+          },
+          {
+            "hit": 254,
+            "isFocus": false,
+            "convertedValue": "管理委员会",
+            "value": "04000509",
+            "paramName": "depart",
+            "fieldName": "S_department",
+            "url": "wSearch.sp?act=search&clientType=responsive&sign=unar&category=AR&depart=04000509"
+          },
+          {
+            "hit": 17,
+            "isFocus": false,
+            "convertedValue": "研发中心",
+            "value": "02570019",
+            "paramName": "depart",
+            "fieldName": "S_department",
+            "url": "wSearch.sp?act=search&clientType=responsive&sign=unar&category=AR&depart=02570019"
+          }
+        ]
+      },
+      {
+        "facetTitle": "顶级栏目",
+        "paramName": "catalog",
+        "isSingleSelect": false,
+        "facetFieldList": [
+          {
+            "hit": 7898,
+            "isFocus": false,
+            "convertedValue": "科技",
+            "value": "2016120519000018",
+            "paramName": "catalog",
+            "fieldName": "S_topcatalog",
+            "url": "wSearch.sp?act=search&clientType=responsive&sign=unar&category=AR&catalog=2016120519000018"
+          },
+          {
+            "hit": 2193,
+            "isFocus": false,
+            "convertedValue": "军事",
+            "value": "2016120619000029",
+            "paramName": "catalog",
+            "fieldName": "S_topcatalog",
+            "url": "wSearch.sp?act=search&clientType=responsive&sign=unar&category=AR&catalog=2016120619000029"
+          }
+        ]
+      },
+      {
+        "facetTitle": "时间范围",
+        "isSingleSelect": false,
+        "facetFieldList": [
+          {
+            "hit": 7842,
+            "isFocus": false,
+            "convertedValue": "一天内",
+            "value": "oneday",
+            "paramName": "time",
+            "fieldName": "pubdate",
+            "url": "wSearch.sp?act=search&clientType=responsive&sign=unar&category=AR&time=oneday"
+          },
+          {
+            "hit": 12300,
+            "isFocus": false,
+            "convertedValue": "一周内",
+            "value": "oneweek",
+            "paramName": "time",
+            "fieldName": "pubdate",
+            "url": "wSearch.sp?act=search&clientType=responsive&sign=unar&category=AR&time=oneweek"
+          },
+          {
+            "hit": 15387,
+            "isFocus": false,
+            "convertedValue": "一月内",
+            "value": "onemouth",
+            "paramName": "time",
+            "fieldName": "pubdate",
+            "url": "wSearch.sp?act=search&clientType=responsive&sign=unar&category=AR&time=onemouth"
+          },
+          {
+            "hit": 22731,
+            "isFocus": false,
+            "convertedValue": "一年内",
+            "value": "oneyear",
+            "paramName": "time",
+            "fieldName": "pubdate",
+            "url": "wSearch.sp?act=search&clientType=responsive&sign=unar&category=AR&time=oneyear"
+          }
+        ]
+      }
+    ],
+    "isFacetChange": false,
+    "page": {
+      "rows": 29073,
+      "pageCount": 2908,
+      "currentPage": 1,
+      "pageSize": 10
+    },
+    "action": "wSearch.sp?act=search",
+    "articleList": [
+      {
+        "pubDate2": [
+          {
+            "convertedValue": "Apr 28, 2017 4:45:00 PM",
+            "value": "Apr 28, 2017 4:45:00 PM",
+            "paramName": "pubDate2"
+          }
+        ],
+        "catalog": [
+          {
+            "convertedValue": "软件开发",
+            "value": "2017042019000004",
+            "paramName": "catalog"
+          }
+        ],
+        "title": [
+          {
+            "convertedValue": "浅谈色彩学：人性化的HSB色彩空间",
+            "value": "浅谈色彩学：人性化的 HSB 色彩空间",
+            "paramName": "title"
+          }
+        ],
+        "pubDate": [
+          {
+            "convertedValue": "Apr 28, 2017 4:45:00 PM",
+            "value": "Apr 28, 2017 4:45:00 PM",
+            "paramName": "pubDate"
+          }
+        ],
+        "content": [
+          {
+            "convertedValue": "RGB与CMYK是大家很熟悉的色彩描述系统，在许多地方我们都可以发现使用这两种方式标示色彩的色彩码，虽然这两种系统的组成原理不一样，但是是可以透过转换取得...",
+            "value": "RGB与CMYK是大家很熟悉的色彩描述系统，在许多地方我们都可以发现使用这两种方式标示色彩的色彩码，虽然这两种系统的组成原理不一样，但是是可以透过转换取得...",
+            "paramName": "content"
+          }
+        ],
+        "curCatalog": [
+          {
+            "convertedValue": "界面设计",
+            "value": "2017042119000015",
+            "paramName": "curCatalog"
+          }
+        ],
+        "id": [
+          {
+            "convertedValue": "2017042819007633",
+            "value": "2017042819007633",
+            "paramName": "id"
+          }
+        ],
+        "depart": [
+          {
+            "convertedValue": "[空值]",
+            "value": "",
+            "paramName": "depart"
+          }
+        ],
+        "contentType": [
+          {
+            "convertedValue": "新闻",
+            "value": "00000003",
+            "paramName": "contentType"
+          }
+        ]
+      },
+      {
+        "pubDate2": [
+          {
+            "convertedValue": "Apr 28, 2017 4:38:00 PM",
+            "value": "Apr 28, 2017 4:38:00 PM",
+            "paramName": "pubDate2"
+          }
+        ],
+        "catalog": [
+          {
+            "convertedValue": "软件开发",
+            "value": "2017042019000004",
+            "paramName": "catalog"
+          }
+        ],
+        "title": [
+          {
+            "convertedValue": "DbOctopus：SQLServer代码编辑和管理工具",
+            "value": "DbOctopus：SQL Server代码编辑和管理工具",
+            "paramName": "title"
+          }
+        ],
+        "pubDate": [
+          {
+            "convertedValue": "Apr 28, 2017 4:38:00 PM",
+            "value": "Apr 28, 2017 4:38:00 PM",
+            "paramName": "pubDate"
+          }
+        ],
+        "content": [
+          {
+            "convertedValue": "DbOctopus是一个MicrosoftSQLServer数据浏览和编辑工具。目前免费为用户提供，不过免费版本只持续到2009年9月1日，之后将会以89美元的价格售出。它提供了一个...",
+            "value": "DbOctopus是一个MicrosoftSQLServer数据浏览和编辑工具。目前免费为用户提供，不过免费版本只持续到2009年9月1日，之后将会以89美元的价格售出。它提供了一个...",
+            "paramName": "content"
+          }
+        ],
+        "curCatalog": [
+          {
+            "convertedValue": "开源软件",
+            "value": "2016122219000003",
+            "paramName": "curCatalog"
+          }
+        ],
+        "id": [
+          {
+            "convertedValue": "2017042819007632",
+            "value": "2017042819007632",
+            "paramName": "id"
+          }
+        ],
+        "depart": [
+          {
+            "convertedValue": "[空值]",
+            "value": "",
+            "paramName": "depart"
+          }
+        ],
+        "contentType": [
+          {
+            "convertedValue": "新闻",
+            "value": "00000003",
+            "paramName": "contentType"
+          }
+        ]
+      }
+    ]
+  }
+]
