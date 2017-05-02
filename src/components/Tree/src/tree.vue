@@ -6,6 +6,8 @@
         :model="item"
         base="0"
         :key="index"
+        :icon="icon"
+        :loading="loading"
       ></tree-node>
     </ul>
   </div>
@@ -20,7 +22,12 @@
         default () {
           return []
         }
-      }
+      },
+      icon: {
+        type: String,
+        default: ''
+      },
+      loading: Boolean
     },
     data () {
       return {
@@ -38,4 +45,14 @@
 <style>
   .tree ul{margin: 0;padding:0;}
   .tree ul li{list-style: none;}
+  .tree ul li div > i:nth-child(1){  
+    cursor: pointer;
+    display: inline-block;
+    width: 10px;
+    font-size: 1rem;
+    text-align: center;}
+  .fa-none{position: relative;z-index: -1;}
+  .fa-none:before{
+  	opacity: 0;
+  }
 </style>

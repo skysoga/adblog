@@ -101,7 +101,7 @@ export default {
     position: absolute;
     left: 0.768rem;
     top: 50%;
-    margin-top: -8px;
+    margin-top: -6px;
     color: #fff;
   }
   .form-search > label > input ,  .form-search > label > input:focus {
@@ -114,6 +114,7 @@ export default {
     font-size:0.875rem;
     margin:0;
     width:100%;
+    outline: none;
   }
   .form-search .btn-sure{
     cursor: pointer;
@@ -128,6 +129,7 @@ export default {
     right:0;
     top:0;
     background: #fff;
+    text-align: center;
   }
   .ac_result{
     position: absolute;

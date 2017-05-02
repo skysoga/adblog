@@ -2,17 +2,12 @@
 	<div class="">
       <lg-header></lg-header>
       <search-level></search-level>
-      <list></list>
-      <detail></detail>
-      <edit></edit>
-    <button v-on:click="get()">he</button>
+      <list-view></list-view>
 	</div>
 </template>
 <script>
 import searchLevel from './searchLevel'
-import list from './list'
-import detail from './detail'
-import edit from './edit'
+import listView from './listView'
 import LgHeader from '../../components/header'
 export default {
   data () {
@@ -20,22 +15,17 @@ export default {
   },
   components: {
     searchLevel,
-    list,
-    detail,
-    edit,
+    listView,
     LgHeader
   },
   methods: {
-    get () {
-      console.log(this.$http)
-    }
   }
 }
 </script>
 <style scoped="">
-	.search, .list, .detail, .edit{height: calc(100vh - 64px);padding: 20px 1rem}
+	.search, .list-view, .detail, .edit{height: calc(100vh - 64px);padding: 20px 1rem}
 	.search{width: 15%;float: left;display: inline-block;}
-	.list{width:25%;float: left;display: inline-block;}
-	.detail{width:30%;float: left;display: inline-block;}
-	.edit{width:30%;float: left;display: inline-block;}
+	.list-view{width:85%;float: left;display: inline-block;}
+	/*.detail{width:30%;float: left;display: inline-block;}
+	.edit{width:30%;float: left;display: inline-block;}*/
 </style>

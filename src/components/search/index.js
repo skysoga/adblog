@@ -2,9 +2,9 @@
  * Created by Administrator on 2017/4/29.
  */
 import Search from './src/search'
-const LgSearch = {
-  install: function (Vue) {
-    Vue.component('LgSearch', Search)
-  }
+
+Search.install = (Vue) => {
+  Vue.component('lg-tree', Search)
 }
-export default LgSearch
+
+export default Search

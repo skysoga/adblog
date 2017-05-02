@@ -1,7 +1,7 @@
 <template>
   <header>
     <div class="row align-center">
-      <div class="large-6 columns">
+      <div class="large-8 columns">
         <lg-search></lg-search>
       </div>
     </div>
@@ -9,7 +9,7 @@
 </template>
 
 <script>
-  import LgSearch from './search/src/search.vue'
+  import LgSearch from './search'
   export default {
     name: 'header',
     data () {
