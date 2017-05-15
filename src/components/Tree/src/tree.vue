@@ -4,8 +4,10 @@
       <tree-node
         v-for='(item, index) in data'
         :model="item"
+        :props="props"
         base="0"
-        :key="index"
+        :key="item[props.id]"
+        :title="item[props.id]"
         :icon="icon"
         :loading="loading"
       ></tree-node>
@@ -23,6 +25,28 @@
           return []
         }
       },
+      props: {
+        default () {
+          return {
+            id: 'value',
+            children: 'children',
+            label: 'label',
+            icon: 'icon',
+            hit: {
+              type: Boolean,
+              default: false
+            },
+            showCheckbox: {
+              type: Boolean,
+              default: false
+            },
+            Fun: {
+              type: Function,
+              default: null
+            }
+          }
+        }
+      },
       icon: {
         type: String,
         default: ''
@@ -35,7 +59,6 @@
       }
     },
     mounted () {
-      console.log(this.data)
     },
     components: {
       TreeNode

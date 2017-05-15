@@ -18,4 +18,10 @@ router.get('/json', function(req, res, next) {
   console.log(data)
   res.json(data)
 })
+router.get('/data.json', function(req, res, next) {
+  //res.send('index-User');
+  var  data = JSON.parse(fs.readFileSync('data.json'))
+  console.log(data)
+  res.json(data)
+})
 module.exports = router;

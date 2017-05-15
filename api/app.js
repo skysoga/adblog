@@ -10,6 +10,11 @@ app.use(cors({
 	alloweHeaders: ['Conten-Type', 'Authorization']
 }));
 
+app.use(cors({
+	origin: ['http://localhost'],
+	methods: ['GET','POST','PUT'],
+	alloweHeaders: ['Conten-Type', 'Authorization']
+}));
 ////body-parser设置
 //app.use( bodyParser.urlencoded( {extended: true} ));
 //app.use( bodyParser.text({ type: 'text/html' } ));

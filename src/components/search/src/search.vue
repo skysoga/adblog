@@ -13,13 +13,10 @@
       />
     </label>
     <div class="btn-sure" @click="searchInput()"><a>GO</a></div>
-    <ul id="suggestion" class="ac_result" v-show="open">
-      <li v-for="(item, index) in resultData" :class="{hover:index == now}":key="index" @click="searchThis">
-        <span class="ac_word-1">{{item}}</span>
+    <ul id="suggestion" class="ac_result" v-show="resultData.length && open">
+      <li v-for="(item, index) in resultData" :class="{hover:index == nowLi}" :key="index" @click="searchThis(index)">
+        <span class="ac_word-1">{{item[0]}}</span><span class="ac_desc">About {{item[1]}} results</span>
       </li>
-      <li><span class="ac_word"><span>AT</span>HLETE TEE</span><span class="ac_desc">About 2112 results</span></li>
-      <li><span class="ac_word"><span>AT</span>HLETE TEE</span><span class="ac_desc">About 2112 results</span></li>
-      <li><span class="ac_word"><span>AT</span>HLETE TEE</span><span class="ac_desc">About 2112 results</span></li>
     </ul>
   </div>
 </template>
@@ -28,13 +25,12 @@ export default {
   name: 'search',
   data () {
     return {
-      open: false,
+      open: true,
       data: '',
-      oldData: '',
       flag: false,
       resultData: [],
       nowLi: -1,
-      searchSrc: 'http://cms.jiefeng.me:88/wSuggest.sp'
+      searchSrc: 'http://localhost/cms/wSuggest.sp?code=utf-8&act=index'
     }
   },
   methods: {
@@ -48,43 +44,43 @@ export default {
         }
       })
       .then(function (res) {
-        console.log(JSON.parse(res.body).s)
-        this.resultData = res.data.s
-        this.open = true
+        var str = res.body.replace(/(KISSY\.Suggest\.callback)\(\{(.*?)\}\)/, '{$2}')
+        str = str.replace(/'/g, '"')
+        this.resultData = JSON.parse(str).result
       }, function () {
 
       })
     },
     searchInput () {
-      window.open('https://www.baidu.com/s?wd=' + this.data)
-      this.data = ''
+      var param = 'wNewsRecommend.sp?act=search&q=' + this.data
+      this.$store.dispatch('FETCH_LIST_DATA', param).then(() => {
+        this.resultData = []
+      })
+      this.open = false
     },
     searchThis (index) {
-      this.data = this.resultData[index]
+      this.data = this.resultData[index][0]
+      this.resultData = []
       this.searchInput()
     },
     selectDown () {
       this.nowLi++
       if (this.nowLi === this.resultData.length) {
-        this.nowLi = -1
+        this.nowLi = 0
       }
-      this.data = this.resultData[this.nowLi]
+      this.data = this.resultData[this.nowLi][0]
     },
     selectUp () {
       this.nowLi--
       if (this.nowLi === -1) {
         this.nowLi = this.resultData.length - 1
       }
-      this.data = this.resultData[this.nowLi]
+      this.data = this.resultData[this.nowLi][0]
     }
   },
   watch: {
     data: function (val, oldVal) {
-      console.log(this.data)
-      if (this.data.length <= 0) {
-        this.open = false
-        console.log('okd')
-      }
+      this.open = true
     }
   }
 }
@@ -106,8 +102,8 @@ export default {
   }
   .form-search > label > input ,  .form-search > label > input:focus {
     background: none;
-    -webkit-border-radius:6px;
-    -moz-border-radius:6px;
+    -webkit-border-radius:0;
+    -moz-border-radius:0;
     height:40px;
     text-indent:2em;
     color: #fff;
@@ -115,6 +111,7 @@ export default {
     margin:0;
     width:100%;
     outline: none;
+    border-width:0 0 3px 0;
   }
   .form-search .btn-sure{
     cursor: pointer;
@@ -137,6 +134,8 @@ export default {
     background: #fff;
     padding: 10px 0;
     margin: 10px 0;
+    z-index: 10;
+    box-shadow: 0 0 7px rgba(0,0,0,.4);
   }
   .ac_result li {
      font-size: 12px;

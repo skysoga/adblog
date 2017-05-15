@@ -1,0 +1,54 @@
+@import "./variable.less";
+.lg-checkbox{cursor:pointer;display: inline-block;position: relative;margin-right: 10px;}
+.lg-checkbox__input{
+    position: relative;
+    margin-bottom: -5px;
+    display: inline-block;
+    width: 19px;height: 19px;border: 1px solid #c0c0c0;
+    transition: all .3s;
+    border-radius: 3px;
+}
+.lg-checkbox__input input{
+    opacity: 0;
+    outline: none;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+}
+.lg-checkbox__input:before{
+    position: absolute;
+    content: '';
+    top: 2px;
+    left: 6px;
+    opacity: 0;
+    box-sizing: border-box;
+    width: 6px;
+    height: 12px;
+    transform: rotate(45deg);
+    border-width: 2px;
+    border-style: solid;
+    border-color: #fff;
+    border-top: 0;
+    border-left: 0;
+    transition: all .2s;
+}
+.lg-checkbox__input.is-checked{background: @primary-color;border-color: @primary-color;}
+.lg-checkbox__input.is-checked:before{
+    opacity: 1;
+}
+.lg-checkbox_input:hover:before,.lg-checkbox__input:hover{
+    border-color: @primary-color;
+}
+.lg-checkbox__input.is-disabled{opacity: 0.25;cursor: not-allowed;}
+.lg-checkbox__input.is-disabled + span{color: #999;cursor: not-allowed;}
+/*small*/
+.lg-checkbox-button.small{
+    font-size: .75rem;
+}
+.lg-checkbox-button.large{
+    font-size: 1rem;
+}

@@ -1,1 +1,11 @@
 [0502/170951.337:ERROR:exception_handler_server.cc(524)] ConnectNamedPipe: 管道正在被关闭。 (0xE8)
+[0510/173052.543:ERROR:exception_handler_server.cc(524)] ConnectNamedPipe: 管道正在被关闭。 (0xE8)
+[0510/173252.530:ERROR:exception_handler_server.cc(524)] ConnectNamedPipe: 管道正在被关闭。 (0xE8)
+[0510/173544.864:ERROR:exception_handler_server.cc(524)] ConnectNamedPipe: 管道正在被关闭。 (0xE8)
+[0511/152818.418:ERROR:process_info.cc(343)] VirtualQueryEx: 拒绝访问。 (0x5)
+[0511/152818.420:ERROR:process_info.cc(564)] ReadMemoryInfo failed
+[0511/152818.449:ERROR:process_reader_win.cc(99)] process 180152 not found
+[0511/152818.449:ERROR:exception_snapshot_win.cc(87)] thread ID 180220 not found in process
+[0511/152818.449:WARNING:crash_report_exception_handler.cc(60)] ProcessSnapshotWin::Initialize failed
+[0511/152818.450:ERROR:scoped_process_suspend.cc(38)] NtResumeProcess: 已尝试访问正在退出的过程。  (0xc000010a)
+[0515/150300.904:ERROR:exception_handler_server.cc(524)] ConnectNamedPipe: 管道正在被关闭。 (0xE8)
