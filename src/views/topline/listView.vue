@@ -33,6 +33,10 @@
 		  			<span @click="removearTitle(index)">×</span>
 		  			<a>.{{item}}</a></li>
 		  	</ul>
+		  	<div class="recommend margin-b">所属栏目</div>
+		  	<div class="selected">
+				<span v-for="(item, index) in getArCatalog()" :key="index" class="lg-tag">{{item.caName}}<i @click="deleteCaId(index)">×</i></span>
+			</div>
 		  	<div class="recommend">所有栏目</div>
 		  	<lg-checkbox-group v-model="sIds" class="modalTree">
 				<lg-tree :data="catalogTree" :props="props"></lg-tree>
