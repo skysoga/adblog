@@ -180,6 +180,7 @@ export default {
       this.getArtitle()
     },
     getArtitle () {
+      console.log('dd')
       for (let i=0; i < this.arIds.length; i++) {
         this.selectTitle[this.arIds[i]] = this.arTitle.get(this.arIds[i])
       }
