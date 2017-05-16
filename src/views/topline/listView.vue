@@ -176,6 +176,7 @@ export default {
     },
     openModal () {
       this.visible = true
+      this.selectTitle = {}
       this.getArtitle()
     },
     getArtitle () {
