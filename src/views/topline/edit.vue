@@ -215,9 +215,6 @@ export default {
 		display: inline-block;
 		padding: 1rem 1rem 0 0;
 	}
-	.slide-content.tiny {
-		max-width: 600px;
-	}
 	.slide-content {
 		background: rgba(255, 255, 255, 0.95);
 	}

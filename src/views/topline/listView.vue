@@ -40,6 +40,7 @@
 		  	<div class="recommend margin-b">所属栏目</div>
 		  	<div class="selected">
 				<span v-for="(item, index) in getArCatalog()" :key="index" class="lg-tag">{{item.caName}}<i @click="deleteCaId(index)">×</i></span>
+				<span class="clear" title="清空" @click="clear">×</span>
 			</div>
 		  	<div class="recommend">所有栏目</div>
 		  	<lg-checkbox-group v-model="sIds" class="modalTree">
@@ -90,7 +91,7 @@ export default {
         children: 'children',
         showCheckbox: true
       },
-      catalogUrl: 'http://localhost/cms/wNewsRecommend.sp?act=catas'
+      catalogUrl: 'http://192.168.16.110/cms/wNewsRecommend.sp?act=catas'
     }
   },
 
@@ -139,6 +140,9 @@ export default {
     },
     deleteCaId (i) {
       this.sIds.splice(i, 1)
+    },
+    clear () {
+      this.sIds = []
     },
     prePage () {
       console.log('上一页')

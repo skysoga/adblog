@@ -3,8 +3,8 @@ import VueResource from 'vue-resource'
 
 Vue.use(VueResource)
 const api = {
-  databaseUrl: 'http://localhost/cms/',
-  searchUrl: 'http://localhost/cms/wSuggest.sp?code=utf-8&act=index'
+  databaseUrl: 'http://192.168.16.110/cms/',
+  searchUrl: 'http://192.168.16.110/cms/wSuggest.sp?code=utf-8&act=index'
 }
 
 export function fetch (param) {

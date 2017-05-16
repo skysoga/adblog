@@ -118,6 +118,7 @@ export default {
 	.search .title {font-size: 1rem;color:#F0F0F0;padding:10px 10px 4px 10px;border-bottom: 2px solid #fff;margin-bottom: 10px;}
 	.search .catalog .tree{max-height: 170px;overflow: auto;}
 	.search .tree li,.search .tree li a{color: #fff;}
+	.act{margin-left: 1rem;}
 	.act li {color: #fff;cursor: pointer;}
 	.sourceTree .tree li {padding-left: 1rem;}
 </style>

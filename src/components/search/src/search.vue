@@ -30,7 +30,7 @@ export default {
       flag: false,
       resultData: [],
       nowLi: -1,
-      searchSrc: 'http://localhost/cms/wSuggest.sp?code=utf-8&act=index'
+      searchSrc: 'http://192.168.16.110/cms/wSuggest.sp?code=utf-8&act=index'
     }
   },
   methods: {

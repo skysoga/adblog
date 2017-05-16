@@ -2,6 +2,7 @@
 	<div class="cateLog">
 		<div class="selected">
 			<span v-for="(item, index) in getArCatalog()" :key="index" class="lg-tag">{{item.caName}}<i @click="deleteCaId(index)">×</i></span>
+			<span class="clear" title="清空" @click="clear">×</span>
 		</div>
 		<div class="row">
 			<div class="large-12 columns">
@@ -44,7 +45,7 @@ export default {
       sIds: [],
       mapCatalogs: {},
       catalogTree: [],
-      catalogUrl: 'http://localhost/cms/wNewsRecommend.sp?act=catas'
+      catalogUrl: 'http://192.168.16.110/cms/wNewsRecommend.sp?act=catas'
     }
   },
   computed: {
@@ -82,6 +83,9 @@ export default {
     },
     deleteCaId (i) {
       this.sIds.splice(i, 1)
+    },
+    clear () {
+      this.sIds = []
     }
   },
   watch: {
@@ -105,7 +109,9 @@ export default {
 	    border: 1px solid #dfdfe1;
 	    border-radius: 3px;
 	    padding-bottom: 6px;
+	    position: relative;
 	}
+	.selected .clear{position: absolute;right: 6px;top: 6px;cursor: pointer;}
 	.lg-tag {
     background-color: #e4e8f1;
     display: inline-block;
