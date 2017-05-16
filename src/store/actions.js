@@ -24,5 +24,8 @@ export default {
     console.log('actions')
     console.log(article)
     commit('SET_ARTICLE', article)
+  },
+  DATA_ISLOADED: ({ commit, state }, flags) => {
+    commit('SET_FLAGS', flags)
   }
 }

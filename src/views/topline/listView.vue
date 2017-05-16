@@ -1,6 +1,6 @@
 <template>
   <div>
-  	<div class="list-view">
+  	<div class="list-view" :class="{loading:loading}">
     <transition :name="transition">
       <div class="news-list">
       	<lg-checkbox-group v-model="arIds">
@@ -23,6 +23,10 @@
         <div class="bottom"><span>{{ page.currentPage }}/</span>{{ page.pageCount }}</div>
       </div>
     </transition>
+    <div class="spinner">
+	  <div class="double-bounce1"></div>
+	  <div class="double-bounce2"></div>
+	</div>
   </div>
   <lg-reveal title="批量编辑" :open="visible" @revealOpen="handleOpen">
   	<div class="row" slot="body">
@@ -68,6 +72,7 @@ export default {
 
   data () {
     return {
+      loading: false,
       transition: 'slide-right',
       isIndeterminate: true,
       checkAll: true,
@@ -91,6 +96,7 @@ export default {
 
   computed: {
     ...mapState({
+      loaded: state =>state.flags,
       itemList: state => state.items,
       page: state => state.page,
       currUrl: state => state.currUrl
@@ -101,6 +107,7 @@ export default {
   },
   mounted () {
     this.$nextTick(function () {
+      this.loading = true
       this.$store.dispatch('FETCH_LIST_DATA', 'wNewsRecommend.sp?act=search')
       this.getCatalog()
       this.arTitle = new Map()
@@ -111,6 +118,9 @@ export default {
       for (let i of this.itemList) {
         this.arTitle.set(i.id[0].value, i.title[0].value)
       }
+    },
+    itemList () {
+       this.isload()
     }
   },
   methods: {
@@ -127,6 +137,9 @@ export default {
       }
       return arr
     },
+    deleteCaId (i) {
+      this.sIds.splice(i, 1)
+    },
     prePage () {
       console.log('上一页')
       this.transition = 'slide-right'
@@ -142,7 +155,14 @@ export default {
       this.loadItems(param)
     },
     loadItems (param) {
+      this.loading = true
       this.$store.dispatch('FETCH_LIST_DATA', param)
+    },
+    isload () {
+      if (this.loaded) {
+        this.loading = false
+        this.$store.dispatch('DATA_ISLOADED', false)
+      }
     },
     selectAll () {
       var arr = []

@@ -10,6 +10,7 @@ export default {
   },
   SET_ITEMS: (state, items) => {
     state.items = items.data
+    state.flags = true
   },
   SET_TREEDATA: (state, items) => {
     state.treeData = items.treeData
@@ -20,5 +21,8 @@ export default {
   SET_ARTICLE: (state, article) => {
     state.article = article
     console.log('mutations', state.article)
+  },
+  SET_FLAGS: (state, flags) => {
+    state.flags = flags
   }
 }
