@@ -24,7 +24,7 @@
 									<input type="text" :value='getValue("title").value' />
 								</div>
 								<div class="large-4 small-8 columns">
-									<a class="font-s14" @click="handleAr">查看原文</a>
+									<a class="font-s14" @click="handleAr">详细内容</a>
 								</div>
 							</div>
 							<div class="row">

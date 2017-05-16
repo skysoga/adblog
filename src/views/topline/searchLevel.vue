@@ -28,7 +28,7 @@
 		        		v-for="(item, index) in list(items.facetFieldList, items.paramName)" 
 		        		:key="index"
 		        		@click="search(item)"
-		        	>{{item.convertedValue}}</li>
+		        	>{{item.convertedValue}}（{{item.hit}}）</li>
 		        </ul>
 	        </div>
 	      </div>

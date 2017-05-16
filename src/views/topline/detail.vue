@@ -19,7 +19,8 @@
 				</div>
 				<div class="large-4 columns">
 					<title>系统评分</title>
-					<div class="warning-color" style="font-size: 24px;">4.0</div>
+					<div class="warning-color" style="font-size: 24px;">4 分</div>
+					<div><a class="success-color" href="" target="_blank">查看原文</a></div>
 				</div>
 			</div>
 			<div class="article-con row">

@@ -2,10 +2,19 @@
   <div>
   	<div class="list-view" :class="{loading:loading}">
     <transition :name="transition">
-      <div class="news-list">
+      <div class="news-list"
+      	:tabindex="1"
+      	@keyup="getCurritems"
+      	>
       	<lg-checkbox-group v-model="arIds">
         	<transition-group tag="ul" name="item">
-				<item v-for="(item, index) in itemList" :key="index" :item="item"></item>
+				<item
+					 v-for="(item, index) in itemList" 
+					 :key="index" 
+					 :item="item"
+					 :class="{isActive: index == nowli}"
+					 @click.native="nowli=index"
+				></item>
         	</transition-group>
         </lg-checkbox-group>
         <div class="rel-info">
@@ -73,6 +82,7 @@ export default {
 
   data () {
     return {
+      nowli: -1,
       loading: false,
       transition: 'slide-right',
       isIndeterminate: true,
@@ -146,20 +156,19 @@ export default {
     },
     prePage () {
       console.log('上一页')
-      this.transition = 'slide-right'
       var n = this.page.currentPage - 1
       var param = this.currUrl + '&n=' + n
       this.loadItems(param)
     },
     nextPage () {
       console.log('下')
-      this.transition = 'slide-left'
       var n = this.page.currentPage + 1
       var param = this.currUrl + '&n=' + n
       this.loadItems(param)
     },
     loadItems (param) {
       this.loading = true
+      this.nowli = 0
       this.$store.dispatch('FETCH_LIST_DATA', param)
     },
     isload () {
@@ -184,7 +193,6 @@ export default {
       this.getArtitle()
     },
     getArtitle () {
-      console.log('dd')
       for (let i=0; i < this.arIds.length; i++) {
         this.selectTitle[this.arIds[i]] = this.arTitle.get(this.arIds[i])
       }
@@ -194,6 +202,38 @@ export default {
       this.arIds.splice(this.arIds.indexOf(i), 1)
       this.selectTitle = {}
       this.getArtitle()
+    },
+    getCurritems (e) {
+      switch (e.keyCode) {
+        case 38:
+          this.nowli--
+          if (this.nowli === -1) {
+            this.nowli = 0
+          }
+          break
+        case 40:
+          this.nowli++
+          if (this.nowli === 10) {
+            this.nowli = 9
+          }
+          break
+        case 13:
+          var item = this.itemList[this.nowli]
+          console.log(item)
+          this.$store.dispatch('ENSURE_ARTICLE', item)
+          break
+        case 37:
+          console.log('this.page.currentPage', this.page.currentPage) 
+          if (this.page.currentPage > 1) {
+            this.prePage()
+          }
+          break
+        case 39:
+          if (this.page.currentPage < this.page.pageCount) {
+	        this.nextPage()
+          }
+          break
+      }
     }
   },
   components: {
@@ -224,6 +264,7 @@ export default {
 	    box-shadow: 5px 0px 49px rgba(9, 9, 9, 0.3);
 	}
 	/*rel-info*/
+	.news-list:focus{outline: none;}
 	.news-list .bottom {
 		position: absolute;
 	    bottom: 0;

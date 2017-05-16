@@ -25,10 +25,8 @@
       	index: 0,
         calendarProps: {
           mode: "range",
-          minDate: "today",
 	      dateFormat: "Y-m-d",
 	      time_24hr: true,
-	      defaultDate: "2017-02-26",
 	      enableSeconds: false
         }
       }

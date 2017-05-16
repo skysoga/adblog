@@ -1,25 +1,27 @@
 <template>
-  <li v-if="item" :data-id="item.id[0].convertedValue">
+  <li v-if="item">
   	<div class="score"></div>
   	<lg-checkbox :label="item.id[0].convertedValue">{{''}}</lg-checkbox>
-    <div class="title" @click="fetchArticle(item)">
-	    <a target="_blank" :title="item.title[0].value">{{ item.title[0].value }}</a>
-    </div>
-    <div class="meta margin-t4">
-    	<span class="warning-color">{{item.curCatalog[0].convertedValue}}</span>
-  		<span class="author primary-color">
-          {{ item.author[0].value }}
-        </span>
-        <a class="ogSite info-color">{{item.source[0].value}}</a>
-    	<span class="time">
-	    	{{ item.pubDate[0].value | dateTime }} 
-		</span>
-  	</div>
-    <div class="tags margin-t4">
-      <i class="fa fa-tags"></i>
-      <span class="tag" v-for="(item, key, i) in item.SM_tags" :key="i">
-	    {{key}}:{{item.value}}
-	  </span>
+    <div class="arList" @click="fetchArticle(item)">
+        <div class="title">
+		    <a target="_blank" :title="item.title[0].value">{{ item.title[0].value }}</a>
+	    </div>
+	    <div class="meta margin-t4">
+	    	<span class="warning-color">{{item.curCatalog[0].convertedValue}}</span>
+	  		<span class="author primary-color">
+	          {{ item.author[0].value }}
+	        </span>
+	        <a class="ogSite info-color">{{item.source[0].value}}</a>
+	    	<span class="time">
+		    	{{ item.pubDate[0].value | dateTime }} 
+			</span>
+	  	</div>
+	    <div class="tags margin-t4">
+	      <i class="fa fa-tags"></i>
+	      <span class="tag" v-for="(item, key, i) in item.SM_tags" :key="i">
+		    {{key}}:{{item.value}}
+		  </span>
+	    </div>
     </div>
   </li>
 </template>
@@ -37,7 +39,6 @@ export default {
   },
   methods: {
     fetchArticle (item) {
-      console.log('article', item)
       this.$store.dispatch('ENSURE_ARTICLE', item)
     }
   },
@@ -58,6 +59,10 @@ export default {
 	    position: relative;
 	    line-height: 20px;
 	    list-style: none;
+	    transition: background .6s;
+	}
+	.news-list ul li.isActive,.news-list ul li:hover{
+	    background: #eee;
 	}
 	.news-list .lg-checkbox {
 		position: absolute;

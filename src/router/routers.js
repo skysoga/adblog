@@ -5,6 +5,11 @@ const router = [
     component: require('../components/Hello')
   },
   {
+    path: '/login',
+    name: 'login',
+    component: require('../views/login/index')
+  },
+  {
     path: '/detail',
     name: 'detail',
     component: require('../views/topline/detail')
