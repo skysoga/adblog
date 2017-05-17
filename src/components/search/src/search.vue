@@ -21,6 +21,7 @@
   </div>
 </template>
 <script>
+import { fetchSearch } from '../../../api'
 export default {
   name: 'search',
   data () {
@@ -29,8 +30,7 @@ export default {
       data: '',
       flag: false,
       resultData: [],
-      nowLi: -1,
-      searchSrc: 'http://192.168.16.110/cms/wSuggest.sp?code=utf-8&act=index'
+      nowLi: -1
     }
   },
   methods: {
@@ -38,13 +38,10 @@ export default {
       if (event.keyCode === 38 || event.keyCode === 40) {
         return
       }
-      this.$http.get(this.searchSrc, {
-        params: {
-          q: this.data
-        }
-      })
-      .then(function (res) {
-        var str = res.body.replace(/(KISSY\.Suggest\.callback)\(\{(.*?)\}\)/, '{$2}')
+      var param = {params: {q: this.data}}
+      fetchSearch(param)
+      .then((res) => {
+        var str = res.replace(/(KISSY\.Suggest\.callback)\(\{(.*?)\}\)/, '{$2}')
         str = str.replace(/'/g, '"')
         this.resultData = JSON.parse(str).result
       }, function () {
@@ -64,6 +61,7 @@ export default {
       this.searchInput()
     },
     selectDown () {
+      if (this.data.length == 0) return
       this.nowLi++
       if (this.nowLi === this.resultData.length) {
         this.nowLi = 0
@@ -71,6 +69,7 @@ export default {
       this.data = this.resultData[this.nowLi][0]
     },
     selectUp () {
+      if (this.data.length == 0) return
       this.nowLi--
       if (this.nowLi === -1) {
         this.nowLi = this.resultData.length - 1

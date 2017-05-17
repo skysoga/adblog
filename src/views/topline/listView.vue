@@ -74,6 +74,7 @@ import { mapState } from 'vuex'
 import LgCheckboxGroup from '@/components/checkbox-group'
 import LgReveal from '@/components/reveal'
 import LgTree from '@/components/Tree'
+import { fetchCatalog } from '../../api'
 export default {
   name: 'item-list',
   props: {
@@ -136,9 +137,9 @@ export default {
   },
   methods: {
     getCatalog () {
-      this.$http.get(this.catalogUrl).then(function (res) {
-        this.mapCatalogs = res.body.mapCatalogs
-        this.catalogTree = res.body.catalogTree
+      fetchCatalog().then((res) => {
+        this.mapCatalogs = res.mapCatalogs
+        this.catalogTree = res.catalogTree
       })
     },
     getArCatalog () {
@@ -155,13 +156,13 @@ export default {
       this.sIds = []
     },
     prePage () {
-      console.log('上一页')
+      this.transition = 'slide-right'
       var n = this.page.currentPage - 1
       var param = this.currUrl + '&n=' + n
       this.loadItems(param)
     },
     nextPage () {
-      console.log('下')
+      this.transition = 'slide-left'
       var n = this.page.currentPage + 1
       var param = this.currUrl + '&n=' + n
       this.loadItems(param)

@@ -22,7 +22,6 @@
 			</div>
 			<div class="large-12 columns">
 				<div class="recCon">
-					{{sIds}}
 					<span class="lg-tag">ddd</span>
 				</div>
 			</div>
@@ -31,8 +30,9 @@
 </template>
 <script>
 import { mapState } from 'vuex'
-import LgTree from '../../components/Tree'
+import LgTree from '@/components/Tree'
 import LgCheckboxGroup from '@/components/checkbox-group'
+import { fetchCatalog } from '../../api'
 export default {
   data () {
     return {
@@ -44,8 +44,7 @@ export default {
       },
       sIds: [],
       mapCatalogs: {},
-      catalogTree: [],
-      catalogUrl: 'http://192.168.16.110/cms/wNewsRecommend.sp?act=catas'
+      catalogTree: []
     }
   },
   computed: {
@@ -69,9 +68,9 @@ export default {
       this.sIds = arr
     },
     getCatalog () {
-      this.$http.get(this.catalogUrl).then(function (res) {
-        this.mapCatalogs = res.body.mapCatalogs
-        this.catalogTree = res.body.catalogTree
+      fetchCatalog().then((res) => {
+        this.mapCatalogs = res.mapCatalogs
+        this.catalogTree = res.catalogTree
       })
     },
     getArCatalog () {
