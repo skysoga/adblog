@@ -8,7 +8,7 @@
 	</div>
 </template>
 <script>
-import LgHeader from '../../components/header'
+import LgHeader from '@/components/header'
 import searchLevel from './searchLevel'
 import listView from './listView'
 import Edit from './edit'

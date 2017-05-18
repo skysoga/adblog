@@ -101,7 +101,7 @@ export default {
   }
 }
 </script>
-<style lang="less">
+<style>
 	.selected{
 		margin-bottom: 1rem;
 	    min-height: 36px;

@@ -49,8 +49,13 @@ export default {
 }
 </script>
 <style>
-	.news-list{height: calc(100vh - 95px);overflow-y: auto;padding: 10px 20px 20px;
-    background: #fff; min-height: calc(100vh - 95px);}
+	.news-list{
+		height: calc(100vh - 95px);
+		overflow-y: auto;
+		padding: 10px 20px 20px;
+    	background: #fff; 
+    	min-height: calc(100vh - 95px);
+    }
 	.news-list ul{margin: 0;padding: 0;}
 	.news-list ul li{
 		background-color: #fff;
@@ -84,7 +89,6 @@ export default {
 	    border-radius: 50%;
 	}
 	.news-list .title a{
-	    /*white-space: nowrap;*/
 	    text-overflow: ellipsis;
 	    overflow: hidden;
 	    margin: 0;
@@ -92,7 +96,14 @@ export default {
 	    font-weight: 600;
 	    padding-right: 10px;
 	}
-	.ogSite{margin-right: 10px;font-size: 0.875rem;color: @primary-color;}
-	.meta span{color: rgba(0, 0, 0, 0.54118);font-size: 0.875rem;margin-right: 10px;}
-	.tags .tag{color: @secondary-color;font-size: 12px;margin-right: 10px;}
+	.ogSite{
+		margin-right: 10px;
+		font-size: 0.875rem;
+	}
+	.meta span{
+		color: rgba(0, 0, 0, 0.54118);
+		font-size: 0.875rem;
+		margin-right: 10px;
+	}
+	.tags .tag{font-size: 12px;margin-right: 10px;}
 </style>

@@ -61,7 +61,7 @@ mix(@color1, @color2);  返回的颜色是@color1和@color2两者的混合色
 @base-font-weight:normal;
 @base-font-color:#333;
 @base-link-font-color:@emphasize-color;
-@base-link-active-bg: darken(@blend-color, 10%);
+@base-link-active-bg: @blend-color, 10%;
 
 /*强调的文字字体大小，行高，宽度*/
 @emphasize-font-size:1.125em;
@@ -152,8 +152,8 @@ mix(@color1, @color2);  返回的颜色是@color1和@color2两者的混合色
 /* 副标题 */
 
 /* 主标题字体颜色  鼠标经过颜色  字体大小 行高 字体风格 字体宽度*/
-@subtitle-font-color:lighten(@header-font-color, 30%);
-@subtitle-font-hover-color:lighten(@header-font-color, 30%);
+@subtitle-font-color:@header-font-color;
+@subtitle-font-hover-color:@header-font-color;
 @subtitle-font-size:1.8em;
 @subtitle-line-height: 2em;
 @subtitle-font-family:@body-font-family;
