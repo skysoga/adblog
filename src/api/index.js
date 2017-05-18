@@ -3,9 +3,9 @@ import VueResource from 'vue-resource'
 
 Vue.use(VueResource)
 const Api = {
-  databaseUrl: 'http://localhost:8082/cms/',
-  searchUrl: 'http://localhost:8082/cms/wSuggest.sp?code=utf-8&act=index',
-  catalogUrl: 'http://localhost:8082/cms/wNewsRecommend.sp?act=catas'
+  databaseUrl: '/api/',
+  searchUrl: '/api/wSuggest.sp?code=utf-8&act=index',
+  catalogUrl: '/api/wNewsRecommend.sp?act=catas'
 }
 
 export function fetch (param) {
