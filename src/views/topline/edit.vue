@@ -21,7 +21,7 @@
 									<label class="text-right">标题：</label>
 								</div>
 								<div class="large-16 small-16 column">
-									<input type="text" :value='getValue("title").value' />
+									<input type="text" :value='getValue("title")' />
 								</div>
 								<div class="large-4 small-8 columns">
 									<a class="font-s14" @click="handleAr">详细内容</a>
@@ -40,7 +40,7 @@
 									<label class="text-right">来源：</label>
 								</div>
 								<div class="large-20 small-18 column margin-b">
-									<label>{{getValue('source').convertedValue}} &nbsp;</label>
+									<label>{{getValue('source')}} &nbsp;</label>
 								</div>
 							</div>
 							<div class="row">
@@ -48,7 +48,7 @@
 									<label class="text-right">时间：</label>
 								</div>
 								<div class="large-20 small-18 column end">
-									<input type="text" :value="getValue('pubDate').convertedValue | dateTime " />
+									<input type="text" v-model="pubdate" />
 								</div>
 							</div>
 							<div class="row">
@@ -145,7 +145,7 @@
 				<div class="row">
 					<div class="small-24 columns text-right padding-t">
 						<a class="button hollow radius secondary small"> 取 消 </a>
-						<a class="small button radius"> 提 交 </a>
+						<a class="small button radius" @click="commit"> 提 交 </a>
 					</div>
 				</div>
 			</div>
@@ -161,9 +161,10 @@ export default {
   data () {
     return {
       tags: [],
-      scores: [1, 2, 3, 4, 5],
+      scores: [0, 1, 2, 3, 4, 5],
       score: 0,
-      curIndex: 0
+      curIndex: 0,
+      pubdate: ""
     }
   },
   computed: {
@@ -174,19 +175,36 @@ export default {
   watch: {
     article: function () {
       this.getTag()
+      this.pubtime()
+      console.log("ssssssssssssssssss", this.article.manualScore)
+      this.curScore (Number(this.article.manualScore))
     }
   },
   methods: {
+     pubtime () {
+       this.pubdate = this.getValue('pubDate_title')
+      
+    },
+    commit () {
+      var form = {}
+      form.tag = this.tags
+      form.manualScore = this.score
+      form.pubdate = this.pubdate
+      form.id = this.article.id
+      this.$store.dispatch("UPDATE_ARTICLE", form)
+    },
+  
     getValue (type) {
-      return this.article[type] ? this.article[type][0] : ''
+      return this.article[type] ? this.article[type] : ''
     },
     getTag () {
       this.tags = []
-      if (!this.article.SM_tags) {
+      if (!this.article.tag) {
         return
       }
-      for (let tag of this.article.SM_tags) {
-        this.tags.push(tag.convertedValue)
+      var tagArr=JSON.parse(this.article.tag)
+      for (var tag in tagArr) {
+        this.tags.push(tag+"|"+tagArr[tag])
       }
     },
     handleClose (tag) {

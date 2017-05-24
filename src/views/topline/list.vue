@@ -39,6 +39,7 @@ export default {
   },
   methods: {
     fetchArticle (item) {
+      
       this.$store.dispatch('ENSURE_ARTICLE', item)
     }
   },

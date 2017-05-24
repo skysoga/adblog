@@ -1,5 +1,7 @@
 import {
-  fetch
+  fetch,
+  fetchArDetail,
+  arUpdate
 } from '../api'
 
 export default {
@@ -21,11 +23,23 @@ export default {
     })
   },
   ENSURE_ARTICLE: ({ commit, state }, article) => {
-    console.log('actions')
-    console.log(article)
-    commit('SET_ARTICLE', article)
+    fetchArDetail(article.id[0].value).then(function (res){
+      commit('SET_ARTICLE', res)
+    })
+    
   },
   DATA_ISLOADED: ({ commit, state }, flags) => {
     commit('SET_FLAGS', flags)
+  },
+  ENSURE_CATAGORY: ({ commit, state }, catagory) =>{
+    commit('SET_CATAGORY',catagory)
+  },
+  UPDATE_ARTICLE: ({ commit, state }, form) =>{
+    form.catagory = state.articleForm.catagory[0].caName
+    form.caId = state.articleForm.catagory[0].caId
+    console.log("ddddddddddddddddddddddddddddddddddddd", JSON.stringify(form))
+    arUpdate( form)
   }
+  
+  
 }

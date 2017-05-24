@@ -22,7 +22,7 @@
 			</div>
 			<div class="large-12 columns">
 				<div class="recCon">
-					<span class="lg-tag">ddd</span>
+					
 				</div>
 			</div>
 		</div>
@@ -40,8 +40,9 @@ export default {
         id: 'caId',
         label: 'caName',
         children: 'children',
-        showCheckbox: true
+        showCheckbox: true,
       },
+      catagory:"",
       sIds: [],
       mapCatalogs: {},
       catalogTree: []
@@ -60,12 +61,10 @@ export default {
   methods: {
     selectIds () {
       var arr = []
-      var currCatalog = this.article ? this.article.curCatalog : []
-      var length = currCatalog.length
-      for (let i = 0; i < length; i++) {
-        arr.push(currCatalog[i].value)
-      }
+      var currCatalog = this.article ? this.article.caId: ""
+      arr.push(currCatalog)
       this.sIds = arr
+      
     },
     getCatalog () {
       fetchCatalog().then((res) => {
@@ -75,9 +74,11 @@ export default {
     },
     getArCatalog () {
       var arr = []
+      
       for (let d of this.sIds) {
         arr.push(this.mapCatalogs[d])
       }
+      this.$store.dispatch('ENSURE_CATAGORY', arr)
       return arr
     },
     deleteCaId (i) {

@@ -17,7 +17,13 @@ export function createStore () {
       sourceData: [],
       catalog: null,
       article: {},
-      items: {}
+      items: {},
+      articleForm: {
+        catagory:"",
+        tag:[],
+        manualScore:0.0,
+        id:""
+      }
     },
     actions,
     mutations,

@@ -23,7 +23,7 @@ module.exports = {
   },
   dev: {
     env: require('./dev.env'),
-    port: 8081,
+    port: 10088,
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
@@ -37,6 +37,16 @@ module.exports = {
         pathRewrite: {
           '^/api': ''
         }
+      },
+      '/HWEB': {
+        target: 'http://192.168.16.111:10080/HWEB',
+    	changeOrigin: true,
+    	headers: {
+    	  tid: '0001'
+    	},
+    	pathRewrite: {
+    	  '^/HWEB': ''
+    	}
       }
     },
     // CSS Sourcemaps off by default because relative paths are "buggy"

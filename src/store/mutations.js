@@ -20,9 +20,12 @@ export default {
   },
   SET_ARTICLE: (state, article) => {
     state.article = article
-    console.log('mutations', state.article)
   },
   SET_FLAGS: (state, flags) => {
     state.flags = flags
+  },
+  SET_CATAGORY: (state, catagory) => {
+    console.log("watch of catagory:",catagory)
+    state.articleForm.catagory = catagory
   }
 }
